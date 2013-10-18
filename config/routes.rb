@@ -1,7 +1,7 @@
 SmokeSignals::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'maps#index'
+  root :to => 'main#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -14,7 +14,7 @@ SmokeSignals::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  match 'map/:id' => 'maps#index', :as => :map
+  match 'maps/:id' => 'maps#index', :as => :map
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

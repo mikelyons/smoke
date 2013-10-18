@@ -17,12 +17,6 @@ function initialize() {
       $.post('http://localhost:9292/faye',
        'message={"channel":"/locations/new", "data":"'+pos+'"}');
 
-      var infowindow = new google.maps.Marker({
-        map: map,
-        position: pos,
-        Title: 'Mike Lyons'
-      });
-
       map.setCenter(pos);
     }, function() {
       handleNoGeolocation(true);
