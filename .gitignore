@@ -27,5 +27,5 @@ vendor/cache/libv8-3.3.10.2-x86_64-linux.gem
 public/404.html
 public/422.html
 public/500.html
-CXROR.sublime-workspace
+*.sublime-workspace
 app/assets/stylesheets/themes/demo/custom-colors.scss
