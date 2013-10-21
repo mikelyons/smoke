@@ -1,6 +1,8 @@
 $(function() {
   var faye = new Faye.Client('http://localhost:9292/faye');
+  var mapId = window.location.pathname.replace('/', '');
   faye.subscribe("/locations/new", function(data){
+    $('#debug').append('<p>'+data.toString()+'</p>');
     data = data.replace('(', '');
     data = data.replace(')', '');
     dis = data.split(',');

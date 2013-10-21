@@ -14,8 +14,12 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-      $.post('http://localhost:9292/faye',
-       'message={"channel":"/locations/new", "data":"'+pos+'"}');
+      var mapId = window.location.pathname.replace('/', '');
+
+      // $.post('http://localhost:9292/faye', 'message={"channel":"/locations/new", "data":"'+pos+'"}');
+
+      $.post('http://localhost:3000/'+mapId+'/update_my_location', {"location":pos.toString()});
+
 
       map.setCenter(pos);
     }, function() {

@@ -14,7 +14,9 @@ SmokeSignals::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  match 'maps/:id' => 'maps#index', :as => :map
+  match 'go' => 'maps#create', :via => :get, :as => 'new_map'
+  match ':short_url' => 'maps#zession', :as => 'map'
+  match ':short_url/update_my_location' => 'maps#update_my_location', :via => :post, :as => 'update_my_location'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

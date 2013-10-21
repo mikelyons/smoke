@@ -12,6 +12,9 @@ gem 'jquery-rails'
 gem 'faye'
 
 gem 'redis'
+gem 'redis-namespace'
+
+gem 'uuidtools'
 
 # Gems used only for assets and not required
 # in production environments by default.
