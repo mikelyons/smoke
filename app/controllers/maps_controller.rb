@@ -10,9 +10,18 @@ class MapsController < ApplicationController
 
     session[:short_url] ||= params[:short_url]
     session[:uuid]      ||= UUIDTools::UUID.random_create.to_s
+    session[:locations] ||= {}
 
     participants = session_participants_by_uuid
     participants << session[:uuid] unless participants.include?(session[:uuid])
+
+    locations = Hash.new
+    participants.each do |person|
+      locations["#{person}"] = $redis.get("#{key}/participants/#{person}")
+      session[:locations] = locations
+    end
+
+    session[:locations] = ActiveSupport::JSON.encode(locations)
 
     # update participants list
     $redis.setex("#{key}/participants", expr, ActiveSupport::JSON.encode(participants))
@@ -30,11 +39,9 @@ class MapsController < ApplicationController
   end
 
   def update_my_location
-    if $redis.get("#{key}/participants/#{session[:uuid]}")
-      $redis.setex("#{key}/participants/#{session[:uuid]}", expr, params[:location])
-    end
+    $redis.setex("#{key}/participants/#{session[:uuid]}", expr, params[:location])
 
-    broadcast("/locations/new", params[:location])
+    broadcast("/#{params[:short_url]}/locations/new", params[:location])
 
     head :ok
   end

@@ -13,6 +13,11 @@
     src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC8VBLtAUvAfUww43qrITN3k5VhVN4QyDs&sensor=true">
   </script>
 
+  <script type="text/javascript">
+    var SS = {};
+    SS.locations = <%= raw session[:locations] %>;
+  </script>
+
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
