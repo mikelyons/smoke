@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 
 gem 'faye'
+gem 'thin'
 
 gem 'redis'
 gem 'redis-namespace'
