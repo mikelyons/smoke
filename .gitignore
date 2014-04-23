@@ -10,6 +10,9 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
+# Ignore redis db dump
+dump.rdb
+
 .DS_Store
 .bundle
 db/*.sqlite3
@@ -28,4 +31,3 @@ public/404.html
 public/422.html
 public/500.html
 *.sublime-workspace
-app/assets/stylesheets/themes/demo/custom-colors.scss
