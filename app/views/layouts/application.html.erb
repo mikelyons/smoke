@@ -18,7 +18,7 @@
     SS.locations = <%= raw session[:locations] %>;
   </script>
 
-  <%= javascript_include_tag "application" %>
+  <%= render :partial => '/shared/js_includes' %>
   <%= csrf_meta_tags %>
 
 
