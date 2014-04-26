@@ -29,9 +29,17 @@
   </style>
 
 </head>
-<body>
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-<%= yield %>
+    <% if user_signed_in? %>
+      <%= link_to "Sign Out", destroy_user_session_url(secure: true), method: :delete %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_url %>
+    <% end %>
 
-</body>
+    <%= yield %>
+
+  </body>
 </html>
