@@ -11,7 +11,8 @@ window.SmokeApp = _.extend
   Mixins: {}
 
   start: ->
-    #do something
+    window.faye = new Faye.Client('http://localhost:9292/faye')
+
     new SmokeApp.Views.Map()
 
 , Backbone.Events
