@@ -17,8 +17,13 @@ gem 'redis-namespace'
 
 gem 'uuidtools'
 
+group :development do
+  gem 'coffee-rails-source-maps'
+end
+
 group :development, :test do
-  gem 'pry' 
+  gem 'pry'
+  gem 'jasmine-rails'
 end
 
 # Gems used only for assets and not required
