@@ -37,9 +37,8 @@ SmokeApp.Views.Map = Backbone.View.extend _.extend({},
     )
 
     google.maps.event.addListener(@GeoMarker, 'geolocation_error', (e) ->
-      alert('There was an error obtaining your position. Message: ' + e.message)
+     alert('There was an error obtaining your position. Message: ' + e.message)
     )
-    
     @GeoMarker.setMap(@map);
 
     ###
